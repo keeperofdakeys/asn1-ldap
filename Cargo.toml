@@ -1,0 +1,10 @@
+[package]
+name = "asn1-ldap"
+version = "0.1.0"
+authors = ["Josh <keeperofdakeys@gmail.com>"]
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+asn1-cereal = { path = "../asn1-rs/asn1-cereal" }
