@@ -1,5 +1,10 @@
+#![allow(non_snake_case)]
+#![allow(non_camel_case_types)]
+
 #[macro_use]
 extern crate asn1_cereal;
+
+use asn1_cereal::OctetString;
 
 struct LDAPMessage {
   messageID: i32,
@@ -25,11 +30,11 @@ ber_choice!(
   bindRequest
 );
 
-struct LdapDN(String);
-ber_alias!(LdapDN ::= String, "LdapDN");
+struct LdapDN(OctetString);
+ber_alias!(LdapDN ::= OctetString, "LdapDN");
 
-struct LdapOID(String);
-ber_alias!(LdapOID ::= String, "LdapOID");
+struct LdapOID(OctetString);
+ber_alias!(LdapOID ::= OctetString, "LdapOID");
 
 struct Controls(Vec<Control>);
 
@@ -38,7 +43,7 @@ ber_alias!(Controls ::= Vec<Control>, "Controls");
 struct Control {
   controlType: LdapOID,
   criticality: bool,
-  controlValue: Option<String>,
+  controlValue: Option<OctetString>,
 }
 
 ber_sequence!(
@@ -65,7 +70,7 @@ ber_sequence!(
 );
 
 enum AuthenticationChoice {
-  simple(String),
+  simple(OctetString),
 }
 
 ber_choice!(
