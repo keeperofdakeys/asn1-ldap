@@ -8,3 +8,6 @@ path = "src/lib.rs"
 
 [dependencies]
 asn1-cereal = { path = "../asn1-rs/asn1-cereal" }
+asn1-cereal-derive = { path = "../asn1-rs/asn1-cereal-derive" }
+log = "^0"
+env_logger = "^0"
